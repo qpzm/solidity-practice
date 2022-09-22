@@ -71,7 +71,7 @@ contract X3 is B, A {
 
     function bar() public override(B, A) {
         console2.log("bar: X3");
-        A.bar(); // A -> B -> O
+        A.bar(); // A -> B -> O. A -> O 가 아님에 주의! X3의 mro를 따르기 때문에 A.bar()는 B.bar()를 호출한다.
         B.bar(); // B -> O
     }
 }
